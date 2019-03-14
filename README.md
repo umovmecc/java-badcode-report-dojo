@@ -1,15 +1,54 @@
 # Bad Code - Relatório
 
 ## Primeiro momento
-* Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"
-* Modificar a validação do número de digitos de um celular valido para 10 digítos
-* Introduzir validação a CPF
-* Fazer a impressão da lista de Pessoas respeitar o seguinte formato
-````
-   Nome: Fulano da Silva
-   Fone: XXXXXXXXX
-   CPF: XXXXXXXXXXX
-````
+Possuímos uma impressão do relatório de pessoas e alguns ajustes foram detectados
+nesse primeiro momento para atender algumas demandas dos nossos cliente. 
+Abaixo foram listados o cenários de melhoria da nossa impressão do Relatório de Pessoas.
+
+* Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"
+Dado que seja realizado uma impressão de relatório 
+Quando o relatório for impresso
+Então não deve aparecer 'll'
+
+* Cenário 2: Telefone com menos de 10 dígitos
+Dado que seja realizado uma impressão de relatório 
+ E a pessoa tenha telefone celular 
+Quando for imprimir os dados da pessoa 
+ E o números de dígitos do telefone é diferente de 10 dígitos
+Então deve dar a mensagem "Telefone invalido!"
+ E não deve imprimir a pessoa no relatório
+
+* Cenário 3: Telefone com 10 dígitos
+Dado que seja realizado uma impressão de relatório 
+ E a pessoa tenha telefone celular 
+Quando for imprimir os dados da pessoa 
+ E o telefone tem 10 dígitos
+Então deve ser possível imprimir a pessoa no relatório
+ 
+* Cenário 4: Introduzir validação a CPF invalido
+Dado que seja realizado uma impressão de relatório
+ E a pessoa tenha um CPF
+Quando for imprimir os dados da pessoa 
+ E o CPF é invalido
+Então deve dar a mensagem "CPF invalido!"
+ E não deve imprimir a pessoa no relatório
+ 
+* Cenário 5: Introduzir validação a CPF valido
+Dado que seja realizado uma impressão de relatório
+ E a pessoa tenha um CPF
+Quando for imprimir os dados da pessoa 
+ E o CPF é valido
+Então deve ser possível imprimir a pessoa no relatório
+
+* Cenário 6: Formato de impressão 
+Dado que seja realizado uma impressão de relatório 
+ E a pessoa tenha telefone celular valido
+ E a pessoa tenha um CPF valido
+Quando for imprimir os dados da pessoa 
+Então o formado de impressão deve ser:
+Nome: Fulano da Silva
+Fone: XXXXXXXXX
+CPF: XXXXXXXXXXX
 
 ## Segundo momento
 * Com base nas necessidadee regras de negócio existentes, reeescreva do zero a aplicação
