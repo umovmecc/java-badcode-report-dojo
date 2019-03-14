@@ -46,9 +46,9 @@ Dado que seja realizado uma impressão de relatório<br>
  E a pessoa tenha um CPF valido<br>
 Quando for imprimir os dados da pessoa <br>
 Então o formado de impressão deve ser:<br>
-``Nome: Fulano da Silva<br>
+*Nome: Fulano da Silva<br>
 Fone: XXXXXXXXX<br>
-CPF: XXXXXXXXXXX<br>``
+CPF: XXXXXXXXXXX<br>*
 
 ## Segundo momento
 * Com base nas necessidadee regras de negócio existentes, reeescreva do zero a aplicação
