@@ -6,9 +6,9 @@ nesse primeiro momento para atender algumas demandas dos nossos cliente.
 Abaixo foram listados o cenários de melhoria da nossa impressão do Relatório de Pessoas.
 
 * Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"
-Dado que seja realizado uma impressão de relatório 
+``Dado que seja realizado uma impressão de relatório 
 Quando o relatório for impresso
-Então não deve aparecer 'll'
+Então não deve aparecer 'll'``
 
 * Cenário 2: Telefone com menos de 10 dígitos
 Dado que seja realizado uma impressão de relatório 
