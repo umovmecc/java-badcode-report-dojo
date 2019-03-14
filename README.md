@@ -6,7 +6,7 @@ nesse primeiro momento para atender algumas demandas dos nossos cliente.
 Abaixo foram listados o cenários de melhoria da nossa impressão do Relatório de Pessoas.
 
 * Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"<br>
-Dado que seja realizado uma impressão de relatório<br> 
+``Dado que seja realizado uma impressão de relatório<br> 
 Quando o relatório for impresso<br>
 Então não deve aparecer 'll'``<br>
 
