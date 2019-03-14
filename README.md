@@ -5,10 +5,10 @@ Possuímos uma impressão do relatório de pessoas e alguns ajustes foram detect
 nesse primeiro momento para atender algumas demandas dos nossos cliente. 
 Abaixo foram listados o cenários de melhoria da nossa impressão do Relatório de Pessoas.
 
-* Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"
-``Dado que seja realizado uma impressão de relatório 
-Quando o relatório for impresso
-Então não deve aparecer 'll'``
+* Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"<br>
+Dado que seja realizado uma impressão de relatório<br> 
+Quando o relatório for impresso<br>
+Então não deve aparecer 'll'``<br>
 
 * Cenário 2: Telefone com menos de 10 dígitos
 Dado que seja realizado uma impressão de relatório 
