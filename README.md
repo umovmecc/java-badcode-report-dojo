@@ -6,24 +6,24 @@ nesse primeiro momento para atender algumas demandas dos nossos cliente.
 Abaixo foram listados o cenários de melhoria da nossa impressão do Relatório de Pessoas.
 
 * Cenário 1: Corrigir erro na impressão do relatório de pessoas. Está aparecendo "ll"<br>
-``Dado que seja realizado uma impressão de relatório<br> 
+Dado que seja realizado uma impressão de relatório<br> 
 Quando o relatório for impresso<br>
-Então não deve aparecer 'll'``<br>
+Então não deve aparecer 'll'<br>
 
-* Cenário 2: Telefone com menos de 10 dígitos
-Dado que seja realizado uma impressão de relatório 
- E a pessoa tenha telefone celular 
-Quando for imprimir os dados da pessoa 
- E o números de dígitos do telefone é diferente de 10 dígitos
-Então deve dar a mensagem "Telefone invalido!"
- E não deve imprimir a pessoa no relatório
+* Cenário 2: Telefone com menos de 10 dígitos<br>
+Dado que seja realizado uma impressão de relatório <br>
+ E a pessoa tenha telefone celular<br> 
+Quando for imprimir os dados da pessoa<br> 
+ E o números de dígitos do telefone é diferente de 10 dígitos<br>
+Então deve dar a mensagem "Telefone invalido!"<br>
+ E não deve imprimir a pessoa no relatório<br>
 
-* Cenário 3: Telefone com 10 dígitos
-Dado que seja realizado uma impressão de relatório 
- E a pessoa tenha telefone celular 
-Quando for imprimir os dados da pessoa 
- E o telefone tem 10 dígitos
-Então deve ser possível imprimir a pessoa no relatório
+* Cenário 3: Telefone com 10 dígitos<br>
+Dado que seja realizado uma impressão de relatório <br>
+ E a pessoa tenha telefone celular<br> 
+Quando for imprimir os dados da pessoa<br> 
+ E o telefone tem 10 dígitos<br>
+Então deve ser possível imprimir a pessoa no relatório<br>
  
 * Cenário 4: Introduzir validação a CPF invalido
 Dado que seja realizado uma impressão de relatório
