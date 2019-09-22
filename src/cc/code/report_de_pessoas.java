@@ -23,7 +23,6 @@ public class report_de_pessoas {
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
 		pessoaTelefonesFixos.add("5134031195");
 		p.setTelefonesFixos(pessoaTelefonesFixos);
-
 		ArrayList<String> pessoaTelefonesCelulares = new ArrayList<String>();
 		pessoaTelefonesCelulares.add("5199668550");
 		p.setTelefonesCelulares(pessoaTelefonesCelulares);
@@ -31,6 +30,7 @@ public class report_de_pessoas {
 
 		Pessoa p2 = new Pessoa();
 		p2.setName("Rafaella");
+		p2.setCpf("02579742025");
 		p2.setTelefonesCelulares(pessoaTelefonesFixos);
 		listPessoas.add(p2);
 

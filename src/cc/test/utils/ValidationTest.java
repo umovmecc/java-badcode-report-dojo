@@ -1,4 +1,4 @@
-package cc.test;
+package cc.test.utils;
 
 import cc.code.model.Pessoa;
 import cc.code.utils.Validation;
@@ -10,7 +10,6 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ValidationTest {
-
     private Validation validation;
 
     public ValidationTest() {
@@ -49,6 +48,19 @@ public class ValidationTest {
 
         List<String> erro = new ArrayList<String>();
         erro.add("Erro - CPF não informado");
+
+        assertEquals(erro, response);
+    }
+
+    @Test
+    public void shouldValidateInvalidCpf() {
+        Pessoa p = this.buildCase();
+        p.setCpf("02579742025");
+
+        List<String> response = this.validation.validate(p);
+
+        List<String> erro = new ArrayList<String>();
+        erro.add("Erro - CPF inválido");
 
         assertEquals(erro, response);
     }
