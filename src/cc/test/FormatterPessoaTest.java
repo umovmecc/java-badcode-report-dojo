@@ -1,9 +1,10 @@
-package cc.code;
+package cc.test;
 
+import cc.code.utils.FormatterPessoa;
+import cc.code.model.Pessoa;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -12,8 +13,6 @@ public class FormatterPessoaTest {
 
     @Test
     public void shouldReturnFomattedNames() {
-        Vector v = new Vector();
-
         Pessoa p = new Pessoa();
         p.setName("Fulano");
         p.setCpf("0033435457");
@@ -21,8 +20,7 @@ public class FormatterPessoaTest {
         pessoaTelefonesFixos.add("8765343");
         p.setTelefonesCelulares(pessoaTelefonesFixos);
         p.setTelefonesFixos(pessoaTelefonesFixos);
-        v.add(p);
 
-        assertEquals("Fulano", this.formatter.format(v));
+        assertEquals("Fulano\n", this.formatter.format(p));
     }
 }

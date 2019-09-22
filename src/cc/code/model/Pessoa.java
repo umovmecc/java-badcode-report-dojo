@@ -1,13 +1,19 @@
-package cc.code;
+package cc.code.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pessoa {
-    String name;
-    String cpf;
-    int idade;
-    List<String> telefonesFixos;
-    List<String> telefonesCelulares;
+    private String name;
+    private String cpf;
+    private int idade;
+    private List<String> telefonesFixos;
+    private List<String> telefonesCelulares;
+
+    public Pessoa() {
+        this.telefonesCelulares = new ArrayList<>();
+        this.telefonesFixos = new ArrayList<>();
+    }
 
     public String getName() {
         return name;

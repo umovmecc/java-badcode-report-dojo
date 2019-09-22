@@ -1,4 +1,7 @@
 package cc.code;
+import cc.code.model.Pessoa;
+import cc.code.service.ImpressaoService;
+
 import java.util.*;
 
 /**
@@ -8,39 +11,30 @@ import java.util.*;
 public class report_de_pessoas {
 
 	/**
-	 * imprime a lista de pessoas
-	 * @param paramL
-	 */
-	public static void print_e_vai(Vector paramL){
-		for (int i = 0; i < paramL.size(); i++) {
-
-			Pessoa p = (Pessoa) paramL.get(i);
-			Validation validador = new Validation();
-			List<String> erro = validador.validaPessoa(p);
-
-			if(!erro.isEmpty())
-				continue;
-		}
-
-		FormatterPessoa formatter = new FormatterPessoa();
-		System.out.print(formatter.format(paramL));
-	}
-
-	/**
 	 * codigo principal
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Vector v = new Vector();
+		List<Pessoa> listPessoas = new ArrayList<>();
 		
 		Pessoa p = new Pessoa();
-		p.setName("Fulano");
-		p.setCpf("0033435457");
+		p.setName("Roberto");
+		p.setCpf("02579742026");
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
-		pessoaTelefonesFixos.add("8765343");
-		p.setTelefonesCelulares(pessoaTelefonesFixos);
-		v.add(p);
-		
-		print_e_vai(v);
+		pessoaTelefonesFixos.add("5134031195");
+		p.setTelefonesFixos(pessoaTelefonesFixos);
+
+		ArrayList<String> pessoaTelefonesCelulares = new ArrayList<String>();
+		pessoaTelefonesCelulares.add("5199668550");
+		p.setTelefonesCelulares(pessoaTelefonesCelulares);
+		listPessoas.add(p);
+
+		Pessoa p2 = new Pessoa();
+		p2.setName("Rafaella");
+		p2.setTelefonesCelulares(pessoaTelefonesFixos);
+		listPessoas.add(p2);
+
+		ImpressaoService service = new ImpressaoService();
+		service.imprimirPessoas(listPessoas);
 	}
 }
