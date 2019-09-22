@@ -1,8 +1,6 @@
-package cc.code;
+package cc.code.utils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
+import cc.code.model.Pessoa;
 
 public class FormatterPessoa {
     public String format(Pessoa pessoa) {

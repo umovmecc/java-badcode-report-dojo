@@ -1,4 +1,7 @@
 package cc.code;
+import cc.code.model.Pessoa;
+import cc.code.service.ImpressaoService;
+
 import java.util.*;
 
 /**
@@ -15,15 +18,19 @@ public class report_de_pessoas {
 		List<Pessoa> listPessoas = new ArrayList<>();
 		
 		Pessoa p = new Pessoa();
-		p.setName("Fulano");
-		p.setCpf("0033435457");
+		p.setName("Roberto");
+		p.setCpf("02579742026");
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
-		pessoaTelefonesFixos.add("8765343");
-		p.setTelefonesCelulares(pessoaTelefonesFixos);
+		pessoaTelefonesFixos.add("5134031195");
+		p.setTelefonesFixos(pessoaTelefonesFixos);
+
+		ArrayList<String> pessoaTelefonesCelulares = new ArrayList<String>();
+		pessoaTelefonesCelulares.add("5199668550");
+		p.setTelefonesCelulares(pessoaTelefonesCelulares);
 		listPessoas.add(p);
 
 		Pessoa p2 = new Pessoa();
-		p2.setName("Roberto");
+		p2.setName("Rafaella");
 		p2.setTelefonesCelulares(pessoaTelefonesFixos);
 		listPessoas.add(p2);
 

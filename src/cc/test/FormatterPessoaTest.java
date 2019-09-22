@@ -1,11 +1,10 @@
 package cc.test;
 
-import cc.code.FormatterPessoa;
-import cc.code.Pessoa;
+import cc.code.utils.FormatterPessoa;
+import cc.code.model.Pessoa;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 import static org.junit.jupiter.api.Assertions.*;
 

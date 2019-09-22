@@ -1,4 +1,8 @@
-package cc.code;
+package cc.code.service;
+
+import cc.code.utils.FormatterPessoa;
+import cc.code.utils.Validation;
+import cc.code.model.Pessoa;
 
 import java.util.List;
 
@@ -8,16 +12,13 @@ public class ImpressaoService {
 
         for (Pessoa pessoa : pessoas) {
             Validation validador = new Validation();
-            List<String> erro = validador.validaPessoa(pessoa);
+            List<String> erro = validador.validate(pessoa);
 
             if(erro.isEmpty()) {
-                System.out.print(formatter.format(pessoa));
+                System.out.print(formatter.format(pessoa) + "\n");
             } else {
-                System.out.print(erro.toString());
+                System.out.print(erro.toString() + "\n");
             }
         }
-
-
-
     }
 }
