@@ -1,4 +1,4 @@
-package cc.test;
+package cc.test.utils;
 
 import cc.code.utils.FormatterPessoa;
 import cc.code.model.Pessoa;
@@ -21,6 +21,6 @@ public class FormatterPessoaTest {
         p.setTelefonesCelulares(pessoaTelefonesFixos);
         p.setTelefonesFixos(pessoaTelefonesFixos);
 
-        assertEquals("Fulano\n", this.formatter.format(p));
+        assertEquals("Fulano", this.formatter.format(p));
     }
 }
