@@ -14,21 +14,24 @@ public class RelatorioPessoas {
 	 * Imprime a lista de pessoas
 	 * @param pessoas
 	 */
-	public static void imprime(List<Pessoa> pessoas){
+	public static List<String> imprime(List<Pessoa> pessoas){
 		
-		List<String> listaPessoas = new ArrayList<String>();
+		List<String> listaImpressao = new ArrayList<String>();
 		
 		for (Pessoa pessoa : pessoas ) {
 			
 			Validation validador = new Validation();
 			List<String> erro = validador.validaPessoa(pessoa);
 			
-			if(!erro.isEmpty())
+			if(!erro.isEmpty()) {
+				listaImpressao.addAll(erro);
 				continue;
+			}
 			
-			listaPessoas.add(pessoa.getName());			
+			listaImpressao.add(pessoa.getName());			
 		}
-		System.out.print(String.join(",", listaPessoas));
+		
+		return listaImpressao;
 	}
 	
 	/**
@@ -38,14 +41,14 @@ public class RelatorioPessoas {
 	public static void main(String[] args) {
 		List<Pessoa> pessoas = new ArrayList<>();
 		
-		Pessoa pessoa = new Pessoa();
-		pessoa.setName("Fulano");
-		pessoa.setCpf("0033435457");
+		Pessoa pessoa1 = new Pessoa();
+		pessoa1.setName("Fulano");
+		pessoa1.setCpf("0033435457");
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
 		pessoaTelefonesFixos.add("8765343");
-		pessoa.setTelefonesCelulares(pessoaTelefonesFixos);
-		pessoas.add(pessoa);
+		pessoa1.setTelefonesFixos(pessoaTelefonesFixos);
 		
-		imprime(pessoas);
+		List<String> resultado = imprime(pessoas);
+		System.out.print(String.join(", ", resultado));
 	}
 }
