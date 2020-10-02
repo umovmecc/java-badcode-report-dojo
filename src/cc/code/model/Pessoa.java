@@ -1,21 +1,26 @@
 package cc.code.model;
 
-import java.util.List;
-
 public class Pessoa {
 	
-	private String name;
+	private static final String FORMATO_SAIDA = "Nome: %s \nFone: %s \nCPF: %s";
+	private String nome;
 	private String cpf;
-	private int idade;
-	private List<String> telefonesFixos;
-	private List<String> telefonesCelulares;
+	private String telefone;
 	
-	public String getName() {
-		return name;
+	public Pessoa(String nome, String cpf, String telefone) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.telefone = telefone;
+	}
+
+	public Pessoa() {	}
+
+	public String getNome() {
+		return nome;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String name) {
+		this.nome = name;
 	}
 	
 	public String getCpf() {
@@ -26,27 +31,16 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 	
-	public int getIdade() {
-		return idade;
+	public String getTelefone() {
+		return telefone;
 	}
 	
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
 	}
-	
-	public List<String> getTelefonesFixos() {
-		return telefonesFixos;
-	}
-	
-	public void setTelefonesFixos(List<String> telefonesFixos) {
-		this.telefonesFixos = telefonesFixos;
-	}
-	
-	public List<String> getTelefonesCelulares() {
-		return telefonesCelulares;
-	}
-	
-	public void setTelefonesCelulares(List<String> telefonesCelulares) {
-		this.telefonesCelulares = telefonesCelulares;
+
+	@Override
+	public String toString() {
+		return String.format(FORMATO_SAIDA, nome, telefone, cpf);
 	}
 }

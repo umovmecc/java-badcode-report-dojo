@@ -20,15 +20,15 @@ public class RelatorioPessoas {
 		
 		for (Pessoa pessoa : pessoas ) {
 			
-			Validation validador = new Validation();
-			List<String> erro = validador.validaPessoa(pessoa);
+			Validador validador = new Validador();
+			List<String> erro = validador.validarPessoa(pessoa);
 			
 			if(!erro.isEmpty()) {
 				listaImpressao.addAll(erro);
 				continue;
 			}
 			
-			listaImpressao.add(pessoa.getName());			
+			listaImpressao.add(pessoa.toString());			
 		}
 		
 		return listaImpressao;
@@ -41,15 +41,10 @@ public class RelatorioPessoas {
 	public static void main(String[] args) {
 		List<Pessoa> pessoas = new ArrayList<>();
 		
-		Pessoa pessoa = new Pessoa();
-		pessoa.setName("Fulano");
-		pessoa.setCpf("02288739088");
-		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
-		pessoaTelefonesFixos.add("8765343");
-		pessoa.setTelefonesFixos(pessoaTelefonesFixos);
+		Pessoa pessoa = new Pessoa("Fulano", "02288739088", "5181511682");
+
 		pessoas.add(pessoa);
-		
 		List<String> resultado = imprime(pessoas);
-		System.out.print(String.join(", ", resultado));
+		System.out.print(String.join("\n -- \n", resultado));
 	}
 }
