@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cc.code.model.Pessoa;
+import cc.code.validator.ValidadorPessoa;
 
 /**
  * Relatório de pessoas
@@ -20,7 +21,7 @@ public class RelatorioPessoas {
 		
 		for (Pessoa pessoa : pessoas ) {
 			
-			Validador validador = new Validador();
+			ValidadorPessoa validador = new ValidadorPessoa();
 			List<String> erro = validador.validarPessoa(pessoa);
 			
 			if(!erro.isEmpty()) {
