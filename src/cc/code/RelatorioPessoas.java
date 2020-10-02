@@ -41,12 +41,13 @@ public class RelatorioPessoas {
 	public static void main(String[] args) {
 		List<Pessoa> pessoas = new ArrayList<>();
 		
-		Pessoa pessoa1 = new Pessoa();
-		pessoa1.setName("Fulano");
-		pessoa1.setCpf("0033435457");
+		Pessoa pessoa = new Pessoa();
+		pessoa.setName("Fulano");
+		pessoa.setCpf("02288739088");
 		ArrayList<String> pessoaTelefonesFixos = new ArrayList<String>();
 		pessoaTelefonesFixos.add("8765343");
-		pessoa1.setTelefonesFixos(pessoaTelefonesFixos);
+		pessoa.setTelefonesFixos(pessoaTelefonesFixos);
+		pessoas.add(pessoa);
 		
 		List<String> resultado = imprime(pessoas);
 		System.out.print(String.join(", ", resultado));

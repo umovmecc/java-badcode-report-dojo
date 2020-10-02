@@ -7,6 +7,7 @@ import cc.code.model.Pessoa;
 
 public class Validation {
 
+	private static final String ERRO_CPF_INVÁLIDO = "Erro - CPF inválido";
 	private static final String ERRO_TELEFONE_INVALIDO = "Erro - Telefone inválido";
 
 	protected List<String> validaPessoa(Pessoa pessoa) {
@@ -14,14 +15,22 @@ public class Validation {
 		List<String> constraints = new ArrayList<String>();
 		if (pessoa != null) {
 			if (pessoa.getCpf() != null) {
+				
+				if (!CPF.valida(pessoa.getCpf())) {
+					constraints.add(ERRO_CPF_INVÁLIDO);
+					return constraints;
+				}
+								
 				if (pessoa.getName() != null) {
 					
 					if (!validaTelefonesFixos(pessoa.getTelefonesFixos())) {
 						constraints.add(ERRO_TELEFONE_INVALIDO);
+						return constraints;
 					}
 					
 					if (!validaTelefonesCelulares(pessoa.getTelefonesCelulares())) {
 						constraints.add(ERRO_TELEFONE_INVALIDO);
+						return constraints;
 					}
 				}
 			}

@@ -2,7 +2,7 @@ package cc.code;
 
 public class CPF {
 
-   static public boolean CPF (String strCpf )
+   public static boolean valida (String strCpf )
    {
       int     d1, d2;
       int     digito1, digito2, resto;
@@ -55,7 +55,7 @@ public class CPF {
 
    
    public static void main(String[] args) {
-      System.out.println( CPF("04624193806") );
+      System.out.println( valida("04624193806") );
    }
    
 
