@@ -11,7 +11,7 @@ public class report_de_pessoas {
 	/**
 	 * a string para somar todos os nomes na lista 
 	 */
-	static String _s;
+	static String _s = "";
 	
 	/**
 	 * imprime a lista de pessoas
@@ -27,8 +27,8 @@ public class report_de_pessoas {
 			
 			if(!erro.isEmpty())
 				continue;
-			
-		    _s += ", " + p.name;			
+
+		    _s += ", " + p.name;
 		}
 
 		_s = _s.substring(2); 
