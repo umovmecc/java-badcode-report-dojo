@@ -18,7 +18,7 @@ public class Validation {
 
     private boolean validaTelefoneFixo(Pessoa pessoa) {
         for (String telefone : pessoa.telefonesFixos) {
-            if (telefone == null || telefone.isEmpty() || telefone.length() < 7) {
+            if (telefone == null || telefone.isEmpty() || telefone.length() < 10) {
                 return true;
             }
         }

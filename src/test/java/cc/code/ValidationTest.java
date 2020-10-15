@@ -115,6 +115,20 @@ class ValidationTest {
     }
 
     @Test
+    void validaPessoaComNumeroTelefoneFixoComTamanhoMenorDeDez() {
+        //given
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("123456789")).build();
+
+        //when
+        List<String> validaPessoa = new Validation().validaPessoa(pessoa);
+
+        //then
+        Assertions.assertNotNull(validaPessoa);
+        Assertions.assertEquals(validaPessoa.size(), 1);
+        Assertions.assertEquals(validaPessoa.get(0), "Erro - Telefone inválido");
+    }
+
+    @Test
     void validaPessoaComNumeroTelefoneFixo() {
         //given
         Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("1234567890")).build();
