@@ -27,7 +27,7 @@ class ValidationTest {
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 0);
+        Assertions.assertEquals(0, validaPessoa.size());
     }
 
     //TODO Validar se pessoa sem CPF deveria retornar erro
@@ -41,103 +41,143 @@ class ValidationTest {
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 0);
+        Assertions.assertEquals(0, validaPessoa.size());
     }
 
-    //TODO Validar se pessoa sem Nome deveria retornar erro
-    //TODO Validar se pessoa com CPF invalido deveria retornar erro
     @Test
-    void validaPessoaSemNome() {
+    void validaPessoaVaziaComCpfInvalido() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addCpf("0").build();
+        Pessoa pessoa = new PessoaBuilder().addCpf("826.113.170-00").build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 0);
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("CPF invalido!",validaPessoa.get(0));
+    }
+
+    @Test
+    void validaPessoaVaziaComCpfComFormatacaoInvalida() {
+        //given
+        Pessoa pessoa = new PessoaBuilder().addCpf("826.113.170.03").build();
+
+        //when
+        List<String> validaPessoa = new Validation().validaPessoa(pessoa);
+
+        //then
+        Assertions.assertNotNull(validaPessoa);
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("CPF invalido!",validaPessoa.get(0));
+    }
+
+    @Test
+    void validaPessoaVaziaComCpfValido() {
+        //given
+        Pessoa pessoa = new PessoaBuilder().addCpf("826.113.170-03").build();
+
+        //when
+        List<String> validaPessoa = new Validation().validaPessoa(pessoa);
+
+        //then
+        Assertions.assertNotNull(validaPessoa);
+        Assertions.assertEquals(0, validaPessoa.size());
+    }
+
+    //TODO Validar se pessoa sem Nome deveria retornar erro
+    @Test
+    void validaPessoaSemNome() {
+        //given
+        Pessoa pessoa = new PessoaBuilder().build();
+
+        //when
+        List<String> validaPessoa = new Validation().validaPessoa(pessoa);
+
+        //then
+        Assertions.assertNotNull(validaPessoa);
+        Assertions.assertEquals(0, validaPessoa.size());
     }
 
     @Test
     void validaPessoaSemNumeroTelefoneFixo() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(java.util.Collections.emptyList()).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(java.util.Collections.emptyList()).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 0);
+        Assertions.assertEquals(0, validaPessoa.size());
     }
 
     @Test
     void validaPessoaComNumeroTelefoneFixoNulo() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList(null)).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(Collections.singletonList(null)).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 1);
-        Assertions.assertEquals(validaPessoa.get(0), "Erro - Telefone inválido");
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("Erro - Telefone inválido",validaPessoa.get(0));
     }
 
     @Test
     void validaPessoaComNumeroTelefoneFixoVazio() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("")).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(Collections.singletonList("")).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 1);
-        Assertions.assertEquals(validaPessoa.get(0), "Erro - Telefone inválido");
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("Erro - Telefone inválido",validaPessoa.get(0));
     }
 
     @Test
     void validaPessoaComNumeroTelefoneFixoComTamanhoMenorDeSete() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("123456")).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(Collections.singletonList("123456")).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 1);
-        Assertions.assertEquals(validaPessoa.get(0), "Erro - Telefone inválido");
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("Erro - Telefone inválido",validaPessoa.get(0));
     }
 
     @Test
     void validaPessoaComNumeroTelefoneFixoComTamanhoMenorDeDez() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("123456789")).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(Collections.singletonList("123456789")).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 1);
-        Assertions.assertEquals(validaPessoa.get(0), "Erro - Telefone inválido");
+        Assertions.assertEquals(1, validaPessoa.size());
+        Assertions.assertEquals("Erro - Telefone inválido",validaPessoa.get(0));
     }
 
     @Test
     void validaPessoaComNumeroTelefoneFixo() {
         //given
-        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addCpf("0").addTelefonesFixos(Collections.singletonList("1234567890")).build();
+        Pessoa pessoa = new PessoaBuilder().addName("Fulano").addTelefonesFixos(Collections.singletonList("1234567890")).build();
 
         //when
         List<String> validaPessoa = new Validation().validaPessoa(pessoa);
 
         //then
         Assertions.assertNotNull(validaPessoa);
-        Assertions.assertEquals(validaPessoa.size(), 0);
+        Assertions.assertEquals(0,validaPessoa.size());
     }
 }
